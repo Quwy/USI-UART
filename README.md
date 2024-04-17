@@ -7,4 +7,4 @@ Applicable for any AVR ATtiny chip with USI interface support: 24/44/84, 25/45/8
 * Minimal application about 700 bytes
 
 Included sample test application for ATtiny25 and simulated circuit for Proteus.
-![Proteus simulation screenshot](https://github.com/Quwy/USI-UART/blob/main/images/UART_proteus.png?raw=true)
+![Proteus simulation screenshot](https://github.com/Quwy/USI-UART/blob/main/images/UART_Proteus.png?raw=true)
