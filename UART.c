@@ -107,7 +107,7 @@ static void start_byte_tx(void) {
 	current_byte = reverse_byte(get_next_byte(tx_buffer, &tx_buffer_size)); // extract next byte from TX buffer
 		
 	USIDR = (current_byte & 0b11110000) >> 1; // Start bit (0) and high half of the data byte
-    USISR |= (0b00001111 & (16 - 5)); // 5 bits total
+        USISR = (USISR & 0b11110000) | (0b00001111 & (16 - 5)); // 5 bits total
 	USICR |= (1 << USIWM0); // Enable USI, connect DO pin to transmitter
 }
 
@@ -115,7 +115,7 @@ static void start_byte_rx(void) {
     stage = STAGE_RX_FIRST_4_BIT; // First stage begins
 
 	USIDR = 0xFF; // High bit must be always 1 during left shift by rx data
-	USISR |= (0b00001111 & (16 - 5)); // 5 bits total
+	USISR = (USISR & 0b11110000) | (0b00001111 & (16 - 5)); // 5 bits total
 	USICR |= (1 << USIWM0); // Enable USI
 }
 
