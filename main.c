@@ -7,12 +7,12 @@
 #include "UART.h"
 
 static inline void mcu_init(void) {
-	sleep_enable();
-	set_sleep_mode(SLEEP_MODE_IDLE);
+    sleep_enable();
+    set_sleep_mode(SLEEP_MODE_IDLE);
 }
 
 static inline void do_yield(void) {
-	sleep_cpu();
+    sleep_cpu();
 }
 
 static inline void do_work(void) {
@@ -38,7 +38,7 @@ int main(void) {
     uart_tx_str("USI-UART DEMO\r\r");
 
     while(true) {
-		do_work();
-		do_yield();
+        do_work();
+        do_yield();
     }
 }
